@@ -5,16 +5,15 @@ import 'package:flutter/cupertino.dart';
 class MyCustomClipper extends CustomClipper<Path> {
   @override
   getClip(Size size) {
-    Size newSize = Size(size.width, size.height - 35);
-    double radius = 50;
-    Offset center = Offset(6 * newSize.width / 7, newSize.height);
-    Offset firstEnd = Offset(6 * newSize.width / 7, newSize.height - radius);
-    Offset secondEnd = Offset(6 * newSize.width / 7 + radius, newSize.height);
-    print('newSize: ' + newSize.toString());
+    Size newSize = Size(size.width, size.height - 40);
+    double radius = 40;
+    Offset center = Offset(6 * size.width / 7, size.height + 20);
+    Offset firstEnd = Offset(6 * size.width / 7, size.height - radius);
+    Offset secondEnd = Offset(6 * size.width / 7 + radius, size.height);
+    print('size: ' + size.toString());
     // TODO: implement getClip
     Path path = Path()
-      ..lineTo(0, newSize.height)
-      ..lineTo(6 * newSize.width / 7 - radius, newSize.height)
+      ..lineTo(0, size.height)
       // ..arcToPoint(
       //   Offset(7 * size.width / 8, size.height - radius),
       //   radius: Radius.circular(radius),
@@ -31,20 +30,18 @@ class MyCustomClipper extends CustomClipper<Path> {
       // //     1 * pi,
       // //     2,
       // //     true)
-      ..arcToPoint(
-        firstEnd,
-        clockwise: true,
-        radius: Radius.circular(radius),
-      )
-      ..arcToPoint(
-        secondEnd,
-        clockwise: true,
-        radius: Radius.circular(radius),
-      )
-      ..lineTo(newSize.width, newSize.height)
-      ..lineTo(newSize.width, 0)
-      ..lineTo(0, 0)
-      ..close();
+
+      // ..lineTo(size.width, size.height)
+      ..arcTo(
+          Rect.fromCircle(
+            center: center,
+            radius: radius,
+          ),
+          1.3 * pi,
+          1.8 * pi,
+          true);
+    // ..lineTo(size.width, 0)
+    // ..lineTo(0, 0)
     return path;
   }
 
