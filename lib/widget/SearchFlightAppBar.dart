@@ -1,7 +1,11 @@
 import 'package:flight_booking_conceptual_app/component/AppBarIconButton.dart';
 import 'package:flutter/material.dart';
 
-class SearchFlightAppBar extends StatelessWidget {
+class MyAppBar extends StatelessWidget {
+  final String title;
+  final IconData icon1;
+  final IconData icon2;
+  MyAppBar({this.icon1, this.icon2, this.title});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,14 +20,14 @@ class SearchFlightAppBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MyContainer(
-                icon: Icons.menu,
+                icon: icon1,
               ),
               Text(
-                "Search Flights",
+                title,
                 style: Theme.of(context).textTheme.headline6,
               ),
               MyContainer(
-                icon: Icons.alarm,
+                icon: icon2,
               ),
             ],
           ),

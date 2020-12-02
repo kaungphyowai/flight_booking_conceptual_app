@@ -62,9 +62,15 @@ flutter:
     - family: Menu
       fonts:
         - asset: fonts/Menu.ttf
+    - family: Filtre
+      fonts:
+        - asset: fonts/Filtre.ttf
     - family: Arrow_Forward
       fonts:
         - asset: fonts/Arrow_Forward.ttf
+    - family: FlyPlane
+      fonts:
+        - asset: fonts/FlyPlane.ttf
     - family: Two_Arrows
       fonts:
         - asset: fonts/Two_Arrows.ttf

@@ -14,7 +14,11 @@ class _SearchFlightState extends State<SearchFlight> {
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
         children: [
-          SearchFlightAppBar(),
+          MyAppBar(
+            icon1: Icons.menu,
+            icon2: Icons.alarm,
+            title: "Search Flights",
+          ),
           Image(
             image: AssetImage('assets/plane.png'),
             fit: BoxFit.fitWidth,
