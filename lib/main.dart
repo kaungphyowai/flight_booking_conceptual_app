@@ -1,6 +1,5 @@
 import 'package:flight_booking_conceptual_app/screens/FlightList.dart';
 import 'package:flight_booking_conceptual_app/screens/SearchFlight.dart';
-import 'package:flight_booking_conceptual_app/screens/SearchFlight2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
