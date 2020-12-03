@@ -1,5 +1,6 @@
 import 'package:flight_booking_conceptual_app/iconClass/filtre_icons.dart';
 import 'package:flight_booking_conceptual_app/iconClass/fly_plane_icons.dart';
+import 'package:flight_booking_conceptual_app/screens/SearchFlight.dart';
 import 'package:flight_booking_conceptual_app/widget/SearchFlightAppBar.dart';
 import 'package:flutter/material.dart';
 import '../data/data.dart';
@@ -122,7 +123,7 @@ class Info extends StatelessWidget {
         Column(
           children: [
             Text(
-              "${flight.fromCity},   ${flight.takeoffdate}",
+              "${flight.fromCity},   ${flight.takeoffday}",
               style: Theme.of(context).textTheme.caption.copyWith(
                     fontWeight: FontWeight.w700,
                     inherit: true,
@@ -185,7 +186,7 @@ class Info extends StatelessWidget {
         Column(
           children: [
             Text(
-              "${flight.toCity}, ${flight.landingdate}",
+              "${flight.toCity}, ${flight.landingday}",
               style: Theme.of(context).textTheme.caption.copyWith(
                     fontWeight: FontWeight.w700,
                     inherit: true,

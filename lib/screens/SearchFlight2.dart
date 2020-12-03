@@ -1,15 +1,9 @@
-import 'package:flight_booking_conceptual_app/screens/FlightList.dart';
-import 'package:flight_booking_conceptual_app/widget/CustomButton.dart';
 import 'package:flight_booking_conceptual_app/widget/SearchFlightAppBar.dart';
 import 'package:flight_booking_conceptual_app/widget/SearchFlightBody.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
-class SearchFlight extends StatefulWidget {
-  @override
-  _SearchFlightState createState() => _SearchFlightState();
-}
-
-class _SearchFlightState extends State<SearchFlight> {
+class SearchFlight2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,21 +17,13 @@ class _SearchFlightState extends State<SearchFlight> {
               icon2: Icons.alarm,
               title: "Search Flights",
             ),
-            Image(
-              image: AssetImage('assets/plane.png'),
-              fit: BoxFit.fitWidth,
+            Lottie.asset(
+              'assets/plane.json',
             ),
             SizedBox(
               height: 10,
             ),
             SearchFlightBody(),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: CustomButton(
-                title: "Search Flight",
-                goto: FlightList(),
-              ),
-            )
           ],
         ),
       ),

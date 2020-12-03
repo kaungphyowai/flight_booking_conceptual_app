@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class MyAppBar extends StatelessWidget {
   final String title;
   final IconData icon1;
+  final icon1Navigator;
   final IconData icon2;
-  MyAppBar({this.icon1, this.icon2, this.title});
+  MyAppBar({this.icon1, this.icon2, this.title, this.icon1Navigator = 0});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,8 +20,15 @@ class MyAppBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              MyContainer(
-                icon: icon1,
+              GestureDetector(
+                onTap: () {
+                  if (icon1Navigator == 0) {
+                    return Navigator.pop(context);
+                  }
+                },
+                child: MyContainer(
+                  icon: icon1,
+                ),
               ),
               Text(
                 title,
