@@ -1,12 +1,18 @@
 import 'package:flight_booking_conceptual_app/component/AppBarIconButton.dart';
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget {
+class MyAppBar extends StatefulWidget {
   final String title;
   final IconData icon1;
   final icon1Navigator;
   final IconData icon2;
   MyAppBar({this.icon1, this.icon2, this.title, this.icon1Navigator = 0});
+
+  @override
+  _MyAppBarState createState() => _MyAppBarState();
+}
+
+class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,20 +28,20 @@ class MyAppBar extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  if (icon1Navigator == 0) {
+                  if (widget.icon1Navigator == 0) {
                     return Navigator.pop(context);
                   }
                 },
                 child: MyContainer(
-                  icon: icon1,
+                  icon: widget.icon1,
                 ),
               ),
               Text(
-                title,
+                widget.title,
                 style: Theme.of(context).textTheme.headline6,
               ),
               MyContainer(
-                icon: icon2,
+                icon: widget.icon2,
               ),
             ],
           ),

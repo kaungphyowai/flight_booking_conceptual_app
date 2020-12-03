@@ -5,9 +5,21 @@ import 'package:flight_booking_conceptual_app/iconClass/two__arrows_icons.dart';
 import 'package:flutter/material.dart';
 import '../iconClass/arrow__forward_icons.dart';
 
-class SearchFlightBody extends StatelessWidget {
+class SearchFlightBody extends StatefulWidget {
+  @override
+  _SearchFlightBodyState createState() => _SearchFlightBodyState();
+}
+
+class _SearchFlightBodyState extends State<SearchFlightBody> {
+  int selectedItem = 0;
   @override
   Widget build(BuildContext context) {
+    changeSelectedItem({int newItem}) {
+      setState(() {
+        selectedItem = newItem;
+      });
+    }
+
     return Container(
       margin: EdgeInsets.only(
         left: 25,
@@ -21,12 +33,18 @@ class SearchFlightBody extends StatelessWidget {
               RoundButton(
                 icon: Arrow_Forward.icon_ionic_md_arrow_round_back,
                 title: "ONE WAY",
+                id: 0,
                 iconSize: 10,
+                selectedItem: selectedItem,
+                changeState: changeSelectedItem,
               ),
               RoundButton(
                 icon: Two_Arrows.group_73,
                 title: "ROUND TRIP",
                 iconSize: 16,
+                id: 1,
+                selectedItem: selectedItem,
+                changeState: changeSelectedItem,
               ),
             ],
           ),
@@ -88,7 +106,7 @@ class SearchFlightBody extends StatelessWidget {
   }
 }
 
-class SearchFlighContianer extends StatelessWidget {
+class SearchFlighContianer extends StatefulWidget {
   final IconData icon;
   final String caption;
   final String text;
@@ -103,12 +121,17 @@ class SearchFlighContianer extends StatelessWidget {
   });
 
   @override
+  _SearchFlighContianerState createState() => _SearchFlighContianerState();
+}
+
+class _SearchFlighContianerState extends State<SearchFlighContianer> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
         top: 35,
-        right: rightmarign,
-        left: leftmargin,
+        right: widget.rightmarign,
+        left: widget.leftmargin,
       ),
       padding: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
@@ -135,7 +158,7 @@ class SearchFlighContianer extends StatelessWidget {
               horizontal: 15,
             ),
             child: Icon(
-              icon,
+              widget.icon,
               size: 30,
               color: Theme.of(context).accentColor,
             ),
@@ -147,14 +170,14 @@ class SearchFlighContianer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  caption,
+                  widget.caption,
                   style: Theme.of(context).textTheme.caption,
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Text(
-                  '$text',
+                  '${widget.text}',
                 ),
               ],
             ),
